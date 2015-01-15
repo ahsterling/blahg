@@ -1,4 +1,16 @@
 body {
-  background-color: #a062a7;
-  font: #ffffff;
+  background-color: #d2afe0;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tag {
+  background-color: #68c393;
+  color: white;
+  padding: 3px;
+  margin: 3px;
+  border-radius: 3px;
 }

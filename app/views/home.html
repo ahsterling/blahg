@@ -1,35 +1,41 @@
 <div ng-controller="homeController">
-  <div class="container-fluid">
 
-    <div class="row">
-      <div class="col-sm-3">
-        <h2>All Posts</h2>
-        Search Posts: <input ng-model = "query">
+  <div class="col-sm-3">
 
-        <ul>
-          <li ng-repeat="post in posts | filter:query" ng-click="">
-            {{post.title}}
-          </li>
-        </ul>
-      </div>
-      <div class="col-sm-6">
-        <ul class="posts">
-          <li ng-repeat="post in posts">
-            <h2>{{post.title}}</h2>
-            <p>{{post.content}}</p>
-          </li>
-        </ul>
-        <h2>{{post.title}}</h2>
-        <p>{{post.content}}</p>
-      </div>
-      <div class="col-sm-3">
-        <h2>Sidebar</h2>
-        Find me on:
-        <ul>
-          <li>Github!</li>
-          <li>Twitter!</li>
-        </ul>
-      </div>
+    <h3>Search by Content:</h3>
+    <input type="text" ng-model = "query">
+
+    <h3>Search by title:</h3>
+    <input type="text" ng-model="search.title">
+    <hr>
+    <h3>Sort Results By:</h3>
+    <select ng-model="orderProp">
+      <option value="-date">Most Recent</option>
+      <option value="title">Title</option>
+    </select>
+    <hr>
+    <h3>Create New Post</h3>
+    <div class="form">
+      <p>Title: <input type="text" ng-model="newPost.title" /></p>
+      <p>Content: <input type="text" ng-model="newPost.content"/></p>
+      Tags:
+      <span ng-repeat="tag in tags">
+        <input type="checkbox" value="tag.id" ng-click="toggleId(tag.id)">{{tag.name}}</input>
+      </span>
+      <p><div ng-click="submitNewPost()" class='btn btn-default'>Create Post</div></p>
     </div>
+  </div>
+  <div class="col-sm-6">
+    <h2>Blahg Posts</h2>
+    <ul class="posts">
+      <li ng-repeat="post in posts | filter:query | filter:search:strict | orderBy:orderProp">
+        <h3>{{post.title}} <small class="tag" ng-repeat="tag_id in post.tag_ids"> {{getTagName(tag_id)}} </small><br>
+        </h3>
+
+        <span>{{post.date | date: 'EEEE'}}</span><br>
+        <p>{{post.content}}</p>
+      </li>
+      <hr>
+    </ul>
   </div>
 </div>
