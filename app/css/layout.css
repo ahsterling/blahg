@@ -1,10 +1,19 @@
 body {
-  background-color: #d2afe0;
+  background-color: white;
 }
 
 ul {
   list-style: none;
   padding-left: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .tag {
@@ -13,4 +22,57 @@ ul {
   padding: 3px;
   margin: 3px;
   border-radius: 3px;
+  display: inline-block;
+}
+
+.selected {
+  background-color: #1be944;
+  color: black;
+}
+
+.navbar {
+  background-color: #8503ca;
+  border:none;
+  border-radius: 0;
+}
+
+.navbar-default .navbar-brand {
+  font-size: 35px;
+  color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #6ba971;
+}
+
+.navbar-default .navbar-text {
+  color: #e4e4e4;
+}
+
+p {
+  white-space: pre-line;
+}
+
+.post h3 {
+  margin: 0;
+}
+
+.checkbox {
+  display: inline-block;
+}
+
+.sidebar {
+  position: relative;
+  padding: 5px;
+  text-align: center;
+}
+
+.post h2 a {
+  margin-bottom: 5px;
+  color: #32a07a;
+}
+.post h4 {
+  margin-bottom: 5px;
+  margin-top: 0;
+  color: #494949;
 }

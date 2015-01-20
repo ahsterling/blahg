@@ -14,26 +14,25 @@
       <option value="title">Title</option>
     </select>
     <hr>
-    <h3>Create New Post</h3>
-    <div class="form">
-      <p>Title: <input type="text" ng-model="newPost.title" /></p>
-      <p>Content: <input type="text" ng-model="newPost.content"/></p>
-      Tags:
-      <span ng-repeat="tag in tags">
-        <input type="checkbox" value="tag.id" ng-click="toggleId(tag.id)">{{tag.name}}</input>
-      </span>
-      <p><div ng-click="submitNewPost()" class='btn btn-default'>Create Post</div></p>
-    </div>
+    <h3>Filter By:</h3>
+    <span ng-class="{'selected': isSelected}" ng-init="isSelected=false" ng-repeat="tag in tags" class="tag" ng-click="isSelected=!isSelected">
+      <span ng-click="setTagFilter(tag.id)">{{tag.name}}</span>
+
+    </span>
+    {{tagFilter}}
   </div>
   <div class="col-sm-6">
-    <h2>Blahg Posts</h2>
     <ul class="posts">
-      <li ng-repeat="post in posts | filter:query | filter:search:strict | orderBy:orderProp">
-        <h3>{{post.title}} <small class="tag" ng-repeat="tag_id in post.tag_ids"> {{getTagName(tag_id)}} </small><br>
-        </h3>
+      <li class="post" ng-repeat="post in posts | filter:query | filter:search:strict | filter:postHasTag | orderBy:orderProp">
 
-        <span>{{post.date | date: 'EEEE'}}</span><br>
+        <h2>
+          <a ui-sref="show({id: post.id})">{{post.title}}</a>
+        </h2>
+
+        <h4>{{post.date | date: 'longDate'}}</h4>
         <p>{{post.content}}</p>
+        <span class="tag" ng-repeat="tag_id in post.tag_ids"> {{getTagName(tag_id)}}</span>
+
       </li>
       <hr>
     </ul>
