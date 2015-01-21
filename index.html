@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="app/css/layout.css">
+    <link href='http://fonts.googleapis.com/css?family=Play|Raleway' rel='stylesheet' type='text/css'>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -10,13 +11,13 @@
     <script src="app/js/app.js"></script>
     <script src="app/js/controllers/layout.js"></script>
     <script src="app/js/controllers/posts.js"></script>
-
+    <script src="app/js/services.js"></script>
   </head>
   <body>
     <div class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" ui-sref=".home">Blahhhhhggg</a>
+          <a class="navbar-brand" ui-sref=".home">allie sterling</a>
         </div>
         <div class="navbar-nav navbar-right">
           <a ui-sref=".about" class="navbar-text">About</a>
@@ -30,11 +31,11 @@
 
         <div ui-view></div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <div class="sidebar">
             <h3>Find me on:</h3>
-            <span>Github</span><br>
-            <span>Twitter</span>
+            <a href="https://twitter.com/allie_sterling" target="_blank"><img src="app/images/twitter-64-black.png" alt="twitter logo"></img></a>
+            <a href="https://github.com/ahsterling" target="_blank"><img src="app/images/github-64-black.png" alt="github logo" /></a>
 
           </div>
         </div>

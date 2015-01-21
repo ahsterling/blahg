@@ -1,5 +1,10 @@
 body {
   background-color: white;
+  font-family: 'raleway' sans-serif;
+}
+
+p {
+  white-space: pre-line;
 }
 
 ul {
@@ -15,6 +20,12 @@ a {
 a:hover {
   text-decoration: none;
 }
+
+
+h2 {
+  margin-top: 10px;
+}
+
 
 .tag {
   background-color: #68c393;
@@ -41,20 +52,16 @@ a:hover {
   color: white;
 }
 
+.navbar-default .navbar-brand:visited {
+  color: white;
+}
+
 .navbar-default .navbar-brand:hover {
   color: #6ba971;
 }
 
 .navbar-default .navbar-text {
   color: #e4e4e4;
-}
-
-p {
-  white-space: pre-line;
-}
-
-.post h3 {
-  margin: 0;
 }
 
 .checkbox {
@@ -67,12 +74,27 @@ p {
   text-align: center;
 }
 
+.post {
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+}
+
 .post h2 a {
   margin-bottom: 5px;
+  margin-top: 10px;
   color: #32a07a;
 }
+
+.post h3 {
+  margin: 0;
+}
+
 .post h4 {
   margin-bottom: 5px;
   margin-top: 0;
   color: #494949;
 }
+
+/*For ui-bootstrap*/
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }

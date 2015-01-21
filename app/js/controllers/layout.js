@@ -1,15 +1,15 @@
 var homeControllerModule = angular.module('homeControllerModule', []);
-homeControllerModule.controller('homeController', ['$scope', '$http', function($scope, $http) {
+homeControllerModule.controller('homeController', ['$scope', '$http', 'apiService', function($scope, $http, apiService) {
 
   $scope.posts = [];
   $scope.tags = [];
 
-  $http.get('http://localhost:3000/posts')
+  apiService.get('posts')
     .success(function(data) {
       $scope.posts = data;
     });
 
-  $http.get('http://localhost:3000/tags')
+  apiService.get('tags')
     .success(function(data) {
       $scope.tags = data;
     })
