@@ -1,10 +1,14 @@
 <div ng-controller="postController">
   <div class="col-sm-9">
+    <div class="post">
+      <h2>
+        {{post.title}}
+      </h2>
 
-    <p>
-      id is {{id}}
-    </p>
-
+      <h4>{{post.date | date: 'longDate'}}</h4>
+      <p>{{post.content}}</p>
+      <span class="tag" ng-repeat="tag in post.tags"> {{tag.name}}</span>
+    </div>
   </div>
 
 </div>

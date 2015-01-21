@@ -2,24 +2,22 @@
 
   <div class="col-sm-3">
 
-    <h3>Search by Content:</h3>
-    <input type="text" ng-model = "query">
+    <h4>Search by Content:</h4>
+    <input type="text" ng-model="query" class="form-control">
 
-    <h3>Search by title:</h3>
-    <input type="text" ng-model="search.title">
+    <h4>Search by title:</h4>
+    <input type="text" ng-model="search.title" class="form-control">
     <hr>
-    <h3>Sort Results By:</h3>
-    <select ng-model="orderProp">
+    <h4>Sort Results By:</h4>
+    <select ng-model="orderProp" class="form-control">
       <option value="-date">Most Recent</option>
       <option value="title">Title</option>
     </select>
     <hr>
-    <h3>Filter By:</h3>
+    <h4>Filter By:</h4>
     <span ng-class="{'selected': isSelected}" ng-init="isSelected=false" ng-repeat="tag in tags" class="tag" ng-click="isSelected=!isSelected">
       <span ng-click="setTagFilter(tag.id)">{{tag.name}}</span>
-
     </span>
-    {{tagFilter}}
   </div>
   <div class="col-sm-6">
     <ul class="posts">

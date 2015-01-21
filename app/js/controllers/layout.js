@@ -1,36 +1,19 @@
 var homeControllerModule = angular.module('homeControllerModule', []);
 homeControllerModule.controller('homeController', ['$scope', '$http', function($scope, $http) {
-  $scope.posts = [
-    {
-      "content": "Run biting sagittis elit cras nec vestibulum, tempus lick sleep on your keyboard stuck in a tree suscipit. Vestibulum judging you sleep in the sink eat the grass non non, zzz amet pellentesque tincidunt a. Iaculis purr rutrum claw faucibus sniff, nibh quis nunc feed me suspendisse vehicula toss the mousie. Sleep in the sink justo vestibulum ac hairball, tail flick jump eat faucibus enim ut purr iaculis. Zzz give me fish stuck in a tree jump on the table, in viverra rhoncus scratched sleep in the sink hiss stuck in a tree pharetra. Rutrum bat nam orci turpis sniff suspendisse, nibh rutrum nunc sagittis run orci turpis. Bat purr fluffy fur libero, attack lick adipiscing catnip sleep in the sink nunc. \n\nLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "date": "2014-12-07T00:00:00.000Z",
-      "id": "123abc",
-      "tag_ids": ["1a", "2b"],
-      "title": "My day"
-    },
-    {
-      "content": "Kitty ipsum dolor sit amet, climb the curtains run hairball judging you leap, biting sniff jump on the table fluffy fur biting. Lay down in your way run bat chase the red dot biting climb the curtains, bat chuf sleep on your face meow. I don't like that food tail flick biting leap puking, meow scratched stuck in a tree lick sleep in the sink climb the curtains. Puking jump on the table feed me rip the couch judging you, meow tail flick purr I don't like that food jump leap. Sniff bat bat feed me I don't like that food meow, toss the mousie toss the mousie toss the mousie feed me. Sleep on your keyboard bat purr hairball, sniff claw run jump on the table chuf eat. Chuf stuck in a tree biting chuf, eat the grass claw stretching sleep in the sink hairball stuck in a tree.",
-      "date": "2015-01-07T00:00:00.000Z",
-      "id": "woEvm3",
-      "tag_ids": [],
-      "title": "Turtles are weird"
-    },
-    {
-      "content": "In viverra faucibus justo bat, faucibus faucibus dolor sniff kittens non. Run judging you climb the curtains faucibus leap, vehicula sleep on your keyboard vehicula tortor faucibus stuck in a tree. Catnip eat the grass vehicula chase the red dot knock over the lamp, stuck in a tree rhoncus stuck in a tree neque quis nunc pellentesque. Vel sagittis feed me sagittis shed everywhere neque, cras nec suscipit chase the red dot sagittis. Attack your ankles elit claw sollicitudin purr scratched, puking suspendisse puking bibendum enim enim ut. Libero scratched orci turpis cras nec jump on the table nullam, catnip fluffy fur catnip nunc. Biting etiam feed me sollicitudin, litter box stuck in a tree climb the curtains bat chuf eat. Hairball dolor meow knock over the lamp hairball, libero quis enim feed me sunbathe nibh shed everywhere.",
-      "date": "2015-01-15T00:00:00.000Z",
-      "id": "bo2jwi",
-      "tag_ids": ["2b", "doop5"],
-      "title": "Teaching at Ada"
-    }
-  ];
 
-  $scope.tags =
-    [
-    { "id": "1a", "name": "2cool4school" },
-    { "id": "2b", "name": "kittycat" },
-  { "id": "doop5", "name": "everything is awesome" },
-{"id": "turtle", "name": "blah"}
-  ];
+  $scope.posts = [];
+  $scope.tags = [];
+
+  $http.get('http://localhost:3000/posts')
+    .success(function(data) {
+      $scope.posts = data;
+    });
+
+  $http.get('http://localhost:3000/tags')
+    .success(function(data) {
+      $scope.tags = data;
+    })
+
 
   $scope.getTagName = function(id) {
     ret = "";
@@ -53,6 +36,8 @@ homeControllerModule.controller('homeController', ['$scope', '$http', function($
         var tag = $scope.tags[i];
       }
     }
+
+    console.log(tag.id);
 
     if ($scope.tagFilter.indexOf(tag.id) >= 0) {
       var index = $scope.tagFilter.indexOf(tag.id);
@@ -88,6 +73,7 @@ homeControllerModule.controller('homeController', ['$scope', '$http', function($
     //   }
     // }
   }
+
 
   $scope.orderProp = "-date";
   $scope.newPost = {"title": '', "content": '', "tag_ids": []};
