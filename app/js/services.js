@@ -6,6 +6,18 @@ servicesModule.factory('apiService', ['$http', function($http) {
   return {
     get: function(page) {
       return $http.get(url + page)
+    },
+    postPost: function(newPost) {
+      return $http.post(url + 'posts',
+        {
+          post: {
+            title: newPost.title,
+            content: newPost.content,
+            tag_id: newPost.tag_ids,
+            date: newPost.date
+          }
+        }
+      )
     }
   }
 }]);

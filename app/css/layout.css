@@ -96,5 +96,9 @@ h2 {
   color: #494949;
 }
 
+.add-tag-form {
+  margin-bottom: 15px;
+}
+
 /*For ui-bootstrap*/
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }

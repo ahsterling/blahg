@@ -1,29 +1,19 @@
 var postsControllerModule = angular.module('postsControllerModule', []);
 
 
-postsControllerModule.controller("newPostController", ['$scope', '$http', function($scope, $http) {
+postsControllerModule.controller("newPostController", ['$scope', '$http', '$location', 'apiService', function($scope, $http, $location, apiService) {
 
   $scope.newPost = {title: '', content: '', tag_ids: [], date: Date()};
 
-  $http.get('http://localhost:3000/tags')
+  apiService.get('tags')
     .success(function(data) {
       $scope.tags = data;
     });
 
-
   $scope.submitNewPost = function() {
 
-    // $scope.posts.push($scope.newPost);
-    $http.post('http://localhost:3000/posts',
-      {
-        post: {
-          title: $scope.newPost.title,
-          content: $scope.newPost.content,
-          tag_ids: $scope.newPost.tag_ids,
-          date: $scope.newPost.date
-        }
-      }
-    )
+    apiService.postPost($scope.newPost);
+    $location.path('/');
   };
 
   $scope.toggleId = function(id) {
@@ -57,9 +47,7 @@ postsControllerModule.controller("newPostController", ['$scope', '$http', functi
     }).success(function(data) {
       $scope.tags.push({id: data.id, name: data.name});
     });
-
   };
-
 
 }]);
 
@@ -68,13 +56,6 @@ postsControllerModule.controller('postController',['$scope', '$http', '$statePar
   $http.get('http://localhost:3000/posts/'+ $stateParams.id)
     .success(function(data) {
       $scope.post = data;
-    })
+    });
 
-  // $scope.createTag = function() {
-  //   $http.post('http://localhost:3000/tags', {
-  //     tag: {
-  //       name: $scope.newTag;
-  //     }
-  //   })
-  // }
-}])
+}]);
