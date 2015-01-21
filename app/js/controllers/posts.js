@@ -55,9 +55,7 @@ postsControllerModule.controller("newPostController", ['$scope', '$http', functi
         name: $scope.newTag.name
       }
     }).success(function(data) {
-      console.log(data.id);
       $scope.tags.push({id: data.id, name: data.name});
-
     });
 
   };

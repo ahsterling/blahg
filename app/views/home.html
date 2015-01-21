@@ -15,8 +15,8 @@
     </select>
     <hr>
     <h4>Filter By:</h4>
-    <span ng-class="{'selected': isSelected}" ng-init="isSelected=false" ng-repeat="tag in tags" class="tag" ng-click="isSelected=!isSelected">
-      <span ng-click="setTagFilter(tag.id)">{{tag.name}}</span>
+    <span ng-class="{'selected': isSelected}" ng-init="isSelected=false" ng-repeat="tag in tags" class="tag" ng-click="isSelected=!isSelected; setTagFilter(tag.id)">
+      <span>{{tag.name}}</span>
     </span>
   </div>
   <div class="col-sm-6">

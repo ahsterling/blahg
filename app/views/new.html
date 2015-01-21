@@ -9,8 +9,8 @@
     </div>
 
     <div class="form-group">
-      <span ng-class="{'selected': isSelected}" ng-init="isSelected=false" ng-repeat="tag in tags" class="tag" ng-click="isSelected=!isSelected">
-        <span ng-click = "toggleId(tag.id)">{{tag.name}}</span>
+      <span ng-class="{'selected': isSelected}" ng-init="isSelected=false" ng-repeat="tag in tags" class="tag" ng-click="isSelected=!isSelected; toggleId(tag.id)">
+        <span>{{tag.name}}</span>
 
       </span>
     </div>
