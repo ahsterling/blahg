@@ -13,7 +13,7 @@ servicesModule.factory('apiService', ['$http', function($http) {
           post: {
             title: newPost.title,
             content: newPost.content,
-            tag_id: newPost.tag_ids,
+            tag_ids: newPost.tag_ids,
             date: newPost.date
           }
         }

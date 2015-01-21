@@ -1,5 +1,5 @@
 <div ng-controller = "newPostController">
-  <div class="col-sm-6">
+  <div class="col-sm-5">
     <h2>Create New Post</h2>
     <div class="form-group">
       <input type="text" ng-model="newPost.title" class="form-control" placeholder="title"></input>
@@ -27,7 +27,9 @@
     </div>
 
   </div>
-  <div class="col-sm-4">
+
+  {{newPost}}
+  <div class="col-sm-5">
     <h2>Post Preview</h2>
     <div class="post post-preview">
       <h3>{{newPost.title}}</h3>
