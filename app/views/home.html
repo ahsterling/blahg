@@ -1,27 +1,7 @@
 <div ng-controller="homeController">
 
-  <div class="col-sm-2 search-filters">
 
-    <h4>Search by Content:</h4>
-    <input type="text" ng-model="query" class="form-control input-sm">
-
-    <h4>Search by title:</h4>
-    <input type="text" ng-model="search.title" class="form-control input-sm">
-    <hr>
-    <h4>Sort Results By:</h4>
-    <select ng-model="orderProp" class="form-control input-sm">
-      <option value="-date">Most Recent</option>
-      <option value="title">Title</option>
-    </select>
-    <hr>
-    <h4>Filter By:</h4>
-    <span ng-class="{'selected': isSelected}" ng-init="isSelected=false" ng-repeat="tag in tags" class="tag" ng-click="isSelected=!isSelected; setTagFilter(tag.id)">
-      <span>{{tag.name}}</span>
-    </span>
-
-  </div>
-
-  <div class="col-sm-8 col-sm-offset-2">
+  <div class="posts-display col-xs-9">
     <ul class="posts">
       <li class="post" ng-repeat="post in posts | filter:query | filter:search:strict | filter:postHasTag | orderBy:orderProp">
 
@@ -38,5 +18,29 @@
       </li>
     </ul>
   </div>
+
+  <div class="col-xs-3 search-filters-container">
+    <div class="search-filters">
+
+
+      <h4>Search by Content:</h4>
+      <input type="text" ng-model="query" class="form-control input-sm">
+
+      <h4>Search by title:</h4>
+      <input type="text" ng-model="search.title" class="form-control input-sm">
+      <hr>
+      <h4>Sort Results By:</h4>
+      <select ng-model="orderProp" class="form-control input-sm">
+        <option value="-date">Most Recent</option>
+        <option value="title">Title</option>
+      </select>
+      <hr>
+      <h4>Filter By:</h4>
+      <span ng-class="{'selected': isSelected}" ng-init="isSelected=false" ng-repeat="tag in tags" class="tag" ng-click="isSelected=!isSelected; setTagFilter(tag.id)">
+        <span>{{tag.name}}</span>
+      </span>
+    </div>
+  </div>
+
 
 </div>

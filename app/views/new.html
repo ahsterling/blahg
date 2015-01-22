@@ -1,5 +1,5 @@
 <div ng-controller = "newPostController">
-  <div class="col-sm-5">
+  <div class="col-sm-6">
     <h2>Create New Post</h2>
     <div class="form-group">
       <input type="text" ng-model="newPost.title" class="form-control" placeholder="title"></input>
@@ -7,6 +7,7 @@
     <div class="form-group">
       <textarea ng-model="newPost.content" rows="10" class="form-control" placeholder="content"></textarea>
     </div>
+    <h4>Click to add tags:</h4>
 
     <div class="form-group">
       <span ng-class="{'selected': isSelected}" ng-init="isSelected=false" ng-repeat="tag in tags" class="tag" ng-click="isSelected=!isSelected; toggleId(tag.id)">
@@ -14,7 +15,6 @@
 
       </span>
     </div>
-
     <form class="add-tag-form form-inline">
       <div class="form-group">
         <input type="text" ng-model="newTag.name" class="form-control input-sm" >
@@ -23,15 +23,14 @@
     </form>
 
     <div class="form-group">
-      <button ng-click = "submitNewPost()" type="submit" class="btn btn-primary btn-block">Create Post</button>
+      <button ng-click = "submitNewPost()" type="submit" class="btn btn-primary btn-block">Publish Post</button>
     </div>
 
   </div>
 
-  {{newPost}}
-  <div class="col-sm-5">
+  <div class="col-sm-6">
     <h2>Post Preview</h2>
-    <div class="post post-preview">
+    <div class="post-show post-preview">
       <h3>{{newPost.title}}</h3>
       <p>
         {{newPost.content}}

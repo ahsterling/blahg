@@ -1,6 +1,7 @@
 body {
   background-color: white;
-  font-family: 'raleway' sans-serif;
+  font-family: 'roboto' sans-serif;
+  font-size: 12pt;
 }
 
 p {
@@ -70,16 +71,35 @@ h2 {
   color: #e4e4e4;
 }
 
+.navbar-nav {
+  /*margin-top: 15px;*/
+}
+
 .navbar-nav a {
   font-size: 20px;
+}
+
+.navbar-text {
+  margin-top: 30px;
 }
 
 .page-content {
   margin-top: 100px;
 }
 
+.posts-display {
+  display: inline-block;
+}
+
 .search-filters {
+  display: inline-block;
   position: fixed;
+  max-width: 250px;
+}
+
+.icons {
+  margin-top: 10px;
+  display: inline-block;
 }
 
 .checkbox {
@@ -87,9 +107,13 @@ h2 {
 }
 
 .sidebar {
-  position: fixed;
   padding: 5px;
   text-align: center;
+  display: inline-block;
+}
+
+.sidebar h3 {
+  margin-top: 0;
 }
 
 .post {
@@ -113,6 +137,19 @@ h2 {
   margin-top: 0;
   color: #494949;
 }
+
+.btn-primary {
+  background-color: #4d1b82;
+}
+
+.btn-primary:hover {
+  background-color: #3f0445;
+}
+/*.post-preview {
+  border: 1px solid #aeaeae;
+  border-radius: 5px;
+  height: 300px;
+}*/
 
 .add-tag-form {
   margin-bottom: 15px;
