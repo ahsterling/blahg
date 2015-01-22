@@ -31,20 +31,28 @@ postsControllerModule.controller("postsController", ['$scope', '$http', '$locati
 
   $scope.setTagFilter = function(tag_id) {
 
-    for (var i = 0; i < $scope.tags.length; i++) {
-      if (tag_id == $scope.tags[i].id) {
-        var tag = $scope.tags[i];
-      }
-    }
+    var i = $scope.tagFilter.indexOf(tag_id);
 
-    console.log(tag.id);
-
-    if ($scope.tagFilter.indexOf(tag.id) >= 0) {
-      var index = $scope.tagFilter.indexOf(tag.id);
-      $scope.tagFilter.splice(index, 1);
+    if (i == -1) {
+      $scope.tagFilter.push(tag_id);
     } else {
-      $scope.tagFilter.push(tag.id);
-    }
+      $scope.tagFilter.splice(i, 1);
+    };
+
+    // for (var i = 0; i < $scope.tags.length; i++) {
+    //   if (tag_id == $scope.tags[i].id) {
+    //     var tag = $scope.tags[i];
+    //   }
+    // }
+    //
+    // console.log(tag.id);
+    //
+    // if ($scope.tagFilter.indexOf(tag.id) >= 0) {
+    //   var index = $scope.tagFilter.indexOf(tag.id);
+    //   $scope.tagFilter.splice(index, 1);
+    // } else {
+    //   $scope.tagFilter.push(tag.id);
+    // }
 
   }
 
@@ -89,7 +97,7 @@ postsControllerModule.controller("postsController", ['$scope', '$http', '$locati
       $scope.newPost.tag_ids.splice(i, 1);
     }
   };
-  
+
 }]);
 
 postsControllerModule.controller("newPostController", ['$scope', '$http', '$location', 'apiService', function($scope, $http, $location, apiService) {

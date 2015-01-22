@@ -33,7 +33,7 @@
 
   <div class="posts-display col-sm-9">
     <ul class="posts">
-      <li class="post" ng-repeat="post in posts | filter:query | filter:search:strict | filter:postHasTag | orderBy:orderProp">
+      <li class="post" ng-repeat="post in posts | filter:query | filter:search:strict | selectedTags:tagFilter | orderBy:orderProp">
 
         <h2>
           <a ui-sref="show({id: post.id})">{{post.title}}</a>
@@ -70,6 +70,7 @@
       <span ng-class="{'selected': isSelected}" ng-init="isSelected=false" ng-repeat="tag in tags" class="tag" ng-click="isSelected=!isSelected; setTagFilter(tag.id)">
         <span>{{tag.name}}</span>
       </span>
+      {{tagFilter}}
     </div>
   </div>
 
