@@ -107,6 +107,7 @@ h2 {
   display: inline-block;
   position: fixed;
   max-width: 250px;
+  /*background: #cbcbcb;*/
 }
 
 .icons {
@@ -171,10 +172,8 @@ h2 {
   display: none;
 }
 
-/*For ui-bootstrap*/
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .icon  {
     display: inline-block;
   }
