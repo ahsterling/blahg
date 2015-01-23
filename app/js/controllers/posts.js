@@ -172,15 +172,41 @@ postsControllerModule.controller('postController',['$scope', '$http', '$statePar
       $scope.post = data;
     });
 
-    $scope.deletePost = function() {
-      var confirm = window.confirm("Are you sure?");
-      if (confirm == true) {
-        $http.delete('http://localhost:3000/posts/'+ $stateParams.id)
-        .success(function(data) {
-          $location.path('/');
-        });
+  $scope.isEditing = false;
 
-      }
+  $scope.deletePost = function() {
+    var confirm = window.confirm("Are you sure?");
+    if (confirm == true) {
+      $http.delete('http://localhost:3000/posts/'+ $stateParams.id)
+      .success(function(data) {
+        $location.path('/');
+      });
+
     }
+  }
+
+  $scope.editPost = function() {
+    $scope.isEditing = true;
+    console.log($stateParams);
+    console.log($scope.post);
+    console.log($scope.post.title);
+    console.log($scope.post.content);
+  //   $http.patch('http://localhost:3000/posts' + $stateParams.id)
+  // .success(function(data) {
+  //
+  // })
+  }
+
+  $scope.savePost = function() {
+    $http.patch('http://localhost:3000/posts/' + $stateParams.id, {
+      post: {
+        title: $scope.post.title,
+        content: $scope.post.content
+      }
+    })
+    .success(function() {
+      $scope.isEditing = false;
+    });
+  }
 
 }]);

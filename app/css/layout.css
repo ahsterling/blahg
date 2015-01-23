@@ -151,6 +151,10 @@ h2 {
   color: #494949;
 }
 
+.post-buttons {
+  text-align: center;
+}
+
 .btn-primary {
   background-color: #4d1b82;
 }

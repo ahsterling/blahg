@@ -1,17 +1,27 @@
 <div ng-controller="postController">
   <div class="col-xs-12">
     <div class="post">
-      <h2>
+      <h2 ng-if="isEditing == false">
         {{post.title}}
         <small>{{post.date | date: 'longDate'}}</small>
       </h2>
+      <form ng-if="isEditing==true" class="form" >
 
+        <div ng-if="isEditing==true" class="form-group">
+          <input type="text" ng-if="isEditing == true" ng-model="post.title" class="form-control"></input>
+          <p ng-if="isEditing == false">{{post.content}}</p>
+          <textarea type="textarea" ng-if="isEditing == true" ng-model="post.content" class="form-control"></textarea>
 
-      <p>{{post.content}}</p>
+        </div>
+      </form>
       <span class="tag" ng-repeat="tag in post.tags"> {{tag.name}}</span>
     </div>
+    <div class="post-buttons">
+      <button ng-click="editPost()" ng-if="isEditing==false" class="btn btn-info">Edit this post</button>
+      <button ng-click="savePost()" ng-if="isEditing==true" class="btn btn-primary">Save this post</button>
+      <button ng-click="deletePost()" class="btn btn-danger">Delete Post</button>
 
-    <button ng-click="deletePost()" class="btn btn-danger">Delete Post</button>
+    </div>
   </div>
 
 </div>
