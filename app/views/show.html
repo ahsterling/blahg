@@ -10,6 +10,8 @@
       <p>{{post.content}}</p>
       <span class="tag" ng-repeat="tag in post.tags"> {{tag.name}}</span>
     </div>
+
+    <button ng-click="deletePost()" class="btn btn-danger">Delete Post</button>
   </div>
 
 </div>

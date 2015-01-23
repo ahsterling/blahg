@@ -165,11 +165,22 @@ postsControllerModule.controller("newPostController", ['$scope', '$http', '$loca
 
 }]);
 
-postsControllerModule.controller('postController',['$scope', '$http', '$stateParams', function($scope, $http, $stateParams) {
+postsControllerModule.controller('postController',['$scope', '$http', '$stateParams', '$location', function($scope, $http, $stateParams, $location) {
   $scope.id = $stateParams.id;
   $http.get('http://localhost:3000/posts/'+ $stateParams.id)
     .success(function(data) {
       $scope.post = data;
     });
+
+    $scope.deletePost = function() {
+      var confirm = window.confirm("Are you sure?");
+      if (confirm == true) {
+        $http.delete('http://localhost:3000/posts/'+ $stateParams.id)
+        .success(function(data) {
+          $location.path('/');
+        });
+
+      }
+    }
 
 }]);
