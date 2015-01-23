@@ -1,5 +1,6 @@
 var blahgApp = angular.module('blahgApp', [
   'ui.router',
+  'ui.bootstrap',
   'homeControllerModule',
   'postsControllerModule',
   'servicesModule',

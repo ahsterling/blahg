@@ -36,5 +36,9 @@
         {{newPost.content}}
       </p>
     </div>
+    <span ng-repeat="tag in newPost.tag_ids">
+      <span class="tag">{{getTagName(tag)}}</span>
+    </span>
+
   </div>
 </div>

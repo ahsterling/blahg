@@ -1,6 +1,6 @@
 var postsControllerModule = angular.module('postsControllerModule', []);
 
-postsControllerModule.controller("postsController", ['$scope', '$http', '$location', 'apiService', function($scope, $http, $location, apiService) {
+postsControllerModule.controller("postsController", ['$scope', '$http', '$location', '$log', 'apiService', function($scope, $http, $location, $log, apiService) {
   $scope.posts = [];
   $scope.tags = [];
 
@@ -97,6 +97,21 @@ postsControllerModule.controller("postsController", ['$scope', '$http', '$locati
       $scope.newPost.tag_ids.splice(i, 1);
     }
   };
+
+  $scope.totalItems = $scope.posts.length;
+  $scope.currentPage = 1;
+
+  $scope.setPage = function (pageNo) {
+    $scope.currentPage = pageNo;
+  };
+
+  $scope.pageChanged = function() {
+    $log.log('Page changed to: ' + $scope.currentPage);
+  };
+
+  $scope.maxSize = 5;
+  $scope.bigTotalItems = 175;
+  $scope.bigCurrentPage = 1;
 
 }]);
 

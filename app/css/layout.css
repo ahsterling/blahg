@@ -105,7 +105,7 @@ h2 {
 
 .search-filters {
   display: inline-block;
-  position: fixed;
+  /*position: fixed;*/
   max-width: 250px;
   /*background: #cbcbcb;*/
 }
@@ -158,11 +158,10 @@ h2 {
 .btn-primary:hover {
   background-color: #3f0445;
 }
-/*.post-preview {
-  border: 1px solid #aeaeae;
-  border-radius: 5px;
-  height: 300px;
-}*/
+
+.post-preview {
+  height: 295px;
+}
 
 .add-tag-form {
   margin-bottom: 15px;
@@ -172,6 +171,7 @@ h2 {
   display: none;
 }
 
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 @media (max-width: 767px) {
   .icon  {
@@ -197,3 +197,5 @@ h2 {
     margin-bottom: 0;
   }
 }
+
+@media (max-height: )

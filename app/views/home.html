@@ -48,6 +48,8 @@
         <hr>
       </li>
     </ul>
+
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
   </div>
 
   <div class="col-sm-3 search-filters-container">
@@ -70,7 +72,6 @@
       <span ng-class="{'selected': isSelected}" ng-init="isSelected=false" ng-repeat="tag in tags" class="tag" ng-click="isSelected=!isSelected; setTagFilter(tag.id)">
         <span>{{tag.name}}</span>
       </span>
-      {{tagFilter}}
     </div>
   </div>
 
