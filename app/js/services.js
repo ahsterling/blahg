@@ -18,6 +18,17 @@ servicesModule.factory('apiService', ['$http', function($http) {
           }
         }
       )
+    },
+
+    patchPost: function(post) {
+      return $http.patch(url + 'posts/' + post.id,
+        {
+          post: {
+            title: post.title,
+            content: post.content,
+          }
+        }
+      )
     }
   }
 }]);

@@ -10,8 +10,8 @@ var blahgApp = angular.module('blahgApp', [
 blahgApp.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
-        url: '/',
-        templateUrl: 'app/views/home.html'
+      url: '/',
+      templateUrl: 'app/views/home.html'
     })
     .state('about', {
       url: '/about',

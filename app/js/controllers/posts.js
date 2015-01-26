@@ -165,7 +165,7 @@ postsControllerModule.controller("newPostController", ['$scope', '$http', '$loca
 
 }]);
 
-postsControllerModule.controller('postController',['$scope', '$http', '$stateParams', '$location', function($scope, $http, $stateParams, $location) {
+postsControllerModule.controller('postController',['$scope', '$http', '$stateParams', '$location', 'apiService', function($scope, $http, $stateParams, $location, apiService) {
   $scope.id = $stateParams.id;
   $http.get('http://localhost:3000/posts/'+ $stateParams.id)
     .success(function(data) {
@@ -187,26 +187,13 @@ postsControllerModule.controller('postController',['$scope', '$http', '$statePar
 
   $scope.editPost = function() {
     $scope.isEditing = true;
-    console.log($stateParams);
-    console.log($scope.post);
-    console.log($scope.post.title);
-    console.log($scope.post.content);
-  //   $http.patch('http://localhost:3000/posts' + $stateParams.id)
-  // .success(function(data) {
-  //
-  // })
   }
 
   $scope.savePost = function() {
-    $http.patch('http://localhost:3000/posts/' + $stateParams.id, {
-      post: {
-        title: $scope.post.title,
-        content: $scope.post.content
-      }
-    })
-    .success(function() {
+    apiService.patchPost($scope.post).success(function() {
       $scope.isEditing = false;
     });
+
   }
 
 }]);

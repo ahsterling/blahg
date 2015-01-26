@@ -9,11 +9,13 @@
 
         <div ng-if="isEditing==true" class="form-group">
           <input type="text" ng-if="isEditing == true" ng-model="post.title" class="form-control"></input>
-          <p ng-if="isEditing == false">{{post.content}}</p>
           <textarea type="textarea" ng-if="isEditing == true" ng-model="post.content" class="form-control"></textarea>
 
         </div>
+
       </form>
+      <p ng-if="isEditing==false">{{post.content}}</p>
+      
       <span class="tag" ng-repeat="tag in post.tags"> {{tag.name}}</span>
     </div>
     <div class="post-buttons">
